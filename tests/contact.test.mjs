@@ -41,10 +41,33 @@ function request(
   });
 }
 try {
+  const previousMode = process.env.NODE_ENV;
+  process.env.NODE_ENV = "production";
+  const savedSecret = process.env.CONTACT_FORM_SECRET;
+  const requestWithoutConfig = request();
+  delete process.env.CONTACT_FORM_SECRET;
+  assert.equal((await GET()).status, 503);
+  assert.equal((await POST(requestWithoutConfig)).status, 503);
+  process.env.CONTACT_FORM_SECRET = savedSecret;
+  for (const name of [
+    "RESEND_API_KEY",
+    "CONTACT_TO_EMAIL",
+    "CONTACT_FROM_EMAIL",
+  ]) {
+    const saved = process.env[name];
+    delete process.env[name];
+    assert.equal((await GET()).status, 503);
+    process.env[name] = saved;
+  }
   const initial = await GET();
   assert.equal(initial.status, 200);
   assert.ok((await initial.json()).token);
   assert.equal(initial.headers.get("cache-control"), "no-store");
+  if (previousMode === undefined) delete process.env.NODE_ENV;
+  else process.env.NODE_ENV = previousMode;
+  process.env.NEXT_PUBLIC_SITE_URL = "invalid-url";
+  assert.equal((await POST(request({ token: "broken" }))).status, 403);
+  process.env.NEXT_PUBLIC_SITE_URL = "https://portfolio.example.test";
   assert.equal(
     (await POST(request({}, "https://untrusted.example"))).status,
     403,

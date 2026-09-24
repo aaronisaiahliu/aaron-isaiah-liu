@@ -1,3 +1,4 @@
+import SocialLinks from "@/components/site/social-links";
 import { notFound } from "next/navigation";
 import { projects } from "@/content/site";
 import {
@@ -65,30 +66,34 @@ export default async function Project({
           </div>
         </section>
       ) : (
-        <>
-          <section className="profile-heading wrap">
-            <TextLink href="/work">Selected work</TextLink>
-            <p className="eyebrow">{p.category}</p>
-            <h1>{p.name}</h1>
-            <BrandMark slug={p.slug} />
-            <p className="profile-lead">{p.lead}</p>
-          </section>
-          <section
-            className={`project-stat wrap ${p.image ? "with-photo" : ""}`}
-          >
-            {p.image && (
-              <Photo
-                id={p.image}
-                alt="Aaron at Hudson Zhang’s book launch reception"
-                priority
-              />
-            )}
-            <div>
-              <span>{p.stat}</span>
-              <p>{p.statLabel}</p>
+        <section
+          className="classic-project-intro hudson-project-intro wrap"
+          aria-labelledby="hudson-project-title"
+        >
+          <TextLink href="/work">Selected work</TextLink>
+          <div className="classic-project-composition">
+            <div className="classic-project-heading">
+              <p className="eyebrow">{p.category}</p>
+              <h1 id="hudson-project-title">
+                Hudson
+                <br />
+                Zhang
+                <br />
+                Studio
+              </h1>
+              <p className="profile-lead">{p.lead}</p>
+              <p className="eyebrow classic-project-role">{p.role}</p>
             </div>
-          </section>
-        </>
+            <div className="classic-project-brand hudson-project-brand">
+              <p className="eyebrow">VISUAL ART / GOLF CULTURE</p>
+              <BrandMark slug={p.slug} />
+              <div className="classic-project-audience hudson-project-identity">
+                <span>{p.stat}</span>
+                <p>{p.statLabel}</p>
+              </div>
+            </div>
+          </div>
+        </section>
       )}
       <section className="profile-body wrap">
         <aside>
@@ -104,6 +109,15 @@ export default async function Project({
           <p className="eyebrow">THE CONTEXT</p>
           <h2>{p.lead}</h2>
           <p>{p.context}</p>
+          {slug === "hudson-zhang-studio" && p.image && (
+            <figure className="hudson-project-image ambient-photo">
+              <Photo
+                id={p.image}
+                alt="Aaron at Hudson Zhang’s book launch reception"
+              />
+              <figcaption>{p.note}</figcaption>
+            </figure>
+          )}
           <div className="profile-work">
             <p className="eyebrow">THE WORK</p>
             <p>{p.approach}</p>
@@ -119,6 +133,7 @@ export default async function Project({
           {slug === "classic-divinity" && (
             <p className="project-note">{p.note}</p>
           )}
+          <SocialLinks slug={slug} scope="work" />
           {slug === "hudson-zhang-studio" && (
             <TextLink href="/clients/hudson-zhang-studio">
               Meet the studio

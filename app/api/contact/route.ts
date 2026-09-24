@@ -1,6 +1,7 @@
 import { createHmac, randomBytes, timingSafeEqual } from "node:crypto";
 import { z } from "zod";
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 const buckets = new Map<string, { count: number; expires: number }>();
 const localSecret = randomBytes(32).toString("hex");
 const headers = { "Cache-Control": "no-store" };
@@ -33,11 +34,25 @@ function fail(error: string, status = 400) {
   return Response.json({ error }, { status, headers });
 }
 export async function GET() {
-  if (!secret())
+  const missing = [
+    ...(!secret() ? ["CONTACT_FORM_SECRET"] : []),
+    ...(process.env.NODE_ENV === "production"
+      ? ["RESEND_API_KEY", "CONTACT_TO_EMAIL", "CONTACT_FROM_EMAIL"].filter(
+          (name) => !process.env[name]?.trim(),
+        )
+      : []),
+  ];
+  if (missing.length) {
+    // Configuration names only: never log credentials, addresses, or inquiry data.
+    console.error(
+      "[contact] Missing server configuration:",
+      missing.join(", "),
+    );
     return fail(
       "The inquiry form is temporarily unavailable. Please try again later.",
       503,
     );
+  }
   const value = `${Date.now()}.${randomBytes(16).toString("hex")}`;
   return Response.json({ token: `${value}.${sign(value)}` }, { headers });
 }
@@ -45,11 +60,15 @@ export async function POST(request: Request) {
   const origin = request.headers.get("origin");
   const trusted = process.env.NEXT_PUBLIC_SITE_URL;
   const requestOrigin = new URL(request.url).origin;
-  if (
-    !origin ||
-    (origin !== requestOrigin &&
-      (!trusted || origin !== new URL(trusted).origin))
-  )
+  let trustedOrigin: string | undefined;
+  if (trusted) {
+    try {
+      trustedOrigin = new URL(trusted).origin;
+    } catch {
+      console.error("[contact] Invalid NEXT_PUBLIC_SITE_URL configuration");
+    }
+  }
+  if (!origin || (origin !== requestOrigin && origin !== trustedOrigin))
     return fail("Please submit your inquiry from this website.", 403);
   if (!secret())
     return fail(
@@ -161,11 +180,16 @@ export async function POST(request: Request) {
       }),
       signal: AbortSignal.timeout(12000),
     });
-    if (!response.ok)
+    if (!response.ok) {
+      console.error(
+        "[contact] Email provider rejected delivery:",
+        response.status,
+      );
       return fail(
         "Your message could not be delivered. Please try again later.",
         502,
       );
+    }
     return Response.json({ ok: true }, { headers });
   } catch {
     return fail(

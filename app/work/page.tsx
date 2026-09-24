@@ -1,3 +1,5 @@
+import SocialLinks from "@/components/site/social-links";
+import { workSocialSlugs } from "@/content/social-links";
 import ArrowIcon from "@/components/site/arrow-icon";
 import Link from "next/link";
 import { projects } from "@/content/site";
@@ -89,11 +91,6 @@ export default function Work() {
             "Selected social media content",
             "Reels, posts & campaigns",
           ],
-          [
-            "05 / SOCIAL",
-            "Social media pages",
-            "Positioning & audience development",
-          ],
         ].map(([number, title, description]) => (
           <article key={number}>
             <p className="eyebrow">{number}</p>
@@ -101,6 +98,20 @@ export default function Work() {
             <p>{description}</p>
             <span className="coming-soon">COMING SOON</span>
           </article>
+        ))}
+      </section>
+      <section
+        id="social-media"
+        className="work-socials wrap"
+        aria-labelledby="work-socials-heading"
+      >
+        <header className="work-socials-heading">
+          <p className="eyebrow">05 / SOCIAL</p>
+          <h2 id="work-socials-heading">Social media</h2>
+          <p>Positioning &amp; audience development</p>
+        </header>
+        {workSocialSlugs.map((slug) => (
+          <SocialLinks key={slug} slug={slug} scope="work" showName />
         ))}
       </section>
       <ContactCta />

@@ -15,8 +15,8 @@ export const clients = [
       "Digital communications",
       "Artist marketing",
     ],
-    source: "https://www.laphil.com/people/sumi-jo",
-    sourceName: "Los Angeles Philharmonic",
+    source: "https://en.wikipedia.org/wiki/Sumi_Jo",
+    sourceName: "Wikipedia",
   },
   {
     slug: "xian-zhang",
@@ -35,9 +35,8 @@ export const clients = [
       "Digital communications",
       "Audience development",
     ],
-    source:
-      "https://seattlesymphonypress.squarespace.com/pressreleases/2026/2/19/music-director-xian-zhang-and-the-seattle-symphony-announce-the-20262027-season",
-    sourceName: "Seattle Symphony",
+    source: "https://en.wikipedia.org/wiki/Xian_Zhang_(conductor)",
+    sourceName: "Wikipedia",
   },
   {
     slug: "jasmine-choi",
@@ -56,9 +55,8 @@ export const clients = [
       "Branding",
       "Web presence",
     ],
-    source:
-      "https://music.indiana.edu/faculty/new-faculty-resonance/new-faculty-profiles/choi-jasmine.html",
-    sourceName: "Indiana University Jacobs School of Music",
+    source: "https://en.wikipedia.org/wiki/Jasmine_Choi",
+    sourceName: "Wikipedia",
   },
   {
     slug: "hudson-zhang-studio",
@@ -140,7 +138,7 @@ export const clients = [
       "Digital campaigns",
       "International audience outreach",
     ],
-    source: "",
+    source: "https://sumijo-isc.com/?lang=en",
     sourceName: "",
     stats: [
       ["500+", "Applications"],
@@ -173,7 +171,7 @@ export const clients = [
       "Digital campaigns",
       "Multi-season festival promotion",
     ],
-    source: "",
+    source: "https://www.operaitalianaisintheair.com/",
     sourceName: "",
     stats: [["3,000–5,000", "Approximate attendees"]],
     statsNote:

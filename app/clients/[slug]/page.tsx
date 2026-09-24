@@ -1,3 +1,4 @@
+import SocialLinks from "@/components/site/social-links";
 import ArrowIcon from "@/components/site/arrow-icon";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -57,7 +58,7 @@ export default async function Client({
               className="source-link"
               href={c.source}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               Artist / organization background{" "}
               <span aria-hidden="true">
@@ -87,6 +88,7 @@ export default async function Client({
               <p className="caption">{c.statsNote}</p>
             </div>
           )}
+          <SocialLinks slug={slug} />
           {c.entries && (
             <div className="project-entries">
               {c.entries.map(([title, description]) => (

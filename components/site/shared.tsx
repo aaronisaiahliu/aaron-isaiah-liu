@@ -96,7 +96,7 @@ export function Footer() {
         <a
           href="https://www.instagram.com/aaronisaiahliu/"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           Instagram{" "}
           <span aria-hidden="true">
@@ -106,7 +106,7 @@ export function Footer() {
         <a
           href="https://www.linkedin.com/in/aaronisaiahliu/"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           LinkedIn{" "}
           <span aria-hidden="true">

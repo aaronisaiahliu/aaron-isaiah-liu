@@ -146,7 +146,7 @@ export default function Navigation() {
               <a
                 href="https://www.instagram.com/aaronisaiahliu/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 Instagram{" "}
                 <span>
@@ -156,7 +156,7 @@ export default function Navigation() {
               <a
                 href="https://www.linkedin.com/in/aaronisaiahliu/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 LinkedIn{" "}
                 <span>

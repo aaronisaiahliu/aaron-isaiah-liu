@@ -24,21 +24,34 @@ export default function ContactForm() {
   const [message, setMessage] = useState("");
   const [token, setToken] = useState("");
   const [ready, setReady] = useState(false);
+  const [preparing, setPreparing] = useState(true);
   const formRef = useRef<HTMLFormElement>(null);
   const statusRef = useRef<HTMLDivElement>(null);
   async function prepare() {
     setReady(false);
+    setPreparing(true);
+    setToken("");
+    setState("idle");
+    setMessage("");
     try {
-      const response = await fetch("/api/contact", { cache: "no-store" });
-      if (!response.ok) throw new Error();
-      const data = (await response.json()) as { token: string };
+      const response = await fetch("/api/contact", {
+        cache: "no-store",
+        signal: AbortSignal.timeout(10000),
+      });
+      if (!response.ok) throw new Error("unavailable");
+      const data = (await response.json()) as { token?: unknown };
+      if (typeof data.token !== "string" || !data.token) {
+        throw new Error("invalid response");
+      }
       setToken(data.token);
       setReady(true);
     } catch {
       setState("error");
       setMessage(
-        "The form could not load. Please check your connection and try again.",
+        "The inquiry form is temporarily unavailable. Please reload the form or try again later. You can also connect through Instagram or LinkedIn.",
       );
+    } finally {
+      setPreparing(false);
     }
   }
   useEffect(() => {
@@ -53,6 +66,7 @@ export default function ContactForm() {
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
+        signal: AbortSignal.timeout(20000),
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: data.get("name"),
@@ -64,11 +78,11 @@ export default function ContactForm() {
           token,
         }),
       });
-      const result = (await response.json()) as {
+      const result = (await response.json().catch(() => ({}))) as {
         error?: string;
         ok?: boolean;
       };
-      if (!response.ok)
+      if (!response.ok || result.ok !== true)
         throw new Error(
           result.error || "Your message could not be sent. Please try again.",
         );
@@ -79,9 +93,9 @@ export default function ContactForm() {
     } catch (error) {
       setState("error");
       setMessage(
-        error instanceof Error
+        error instanceof Error && error.name === "Error"
           ? error.message
-          : "Your message could not be sent. Please try again.",
+          : "Your message could not be sent. Please try again later. Your entries have been kept.",
       );
     }
     setTimeout(() => statusRef.current?.focus(), 0);
@@ -212,9 +226,11 @@ export default function ContactForm() {
         >
           {state === "loading"
             ? "Sending…"
-            : !ready
+            : preparing
               ? "Preparing form…"
-              : "Send inquiry"}
+              : !ready
+                ? "Form unavailable"
+                : "Send inquiry"}
           <span aria-hidden="true">
             <ArrowIcon />
           </span>
