@@ -9,7 +9,7 @@ npm ci
 npm run dev
 ```
 
-Sites development: http://localhost:5173. For native Next.js, use `npm run dev:next` (port 3000). `npm run build:next` creates the Vercel-compatible Next build. `npm run typecheck` checks TypeScript.
+Sites development: http://localhost:5173. For native Next.js, use `npm run dev:next` (port 3000). `npm run build:next` creates the Vercel-compatible Next build. `npm run typecheck` checks authored TypeScript independently of the two frameworks’ generated route caches. Native Next.js builds also run Next’s generated route validation.
 
 ## Inquiry delivery — requires configuration
 

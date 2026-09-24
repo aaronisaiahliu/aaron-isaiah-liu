@@ -15,7 +15,7 @@
     "dev:next": "next dev --port 3000",
     "build:next": "next build",
     "start:next": "next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit --project tsconfig.typecheck.json"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
