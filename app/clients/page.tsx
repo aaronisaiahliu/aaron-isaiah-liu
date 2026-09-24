@@ -1,3 +1,4 @@
+import ArrowIcon from "@/components/site/arrow-icon";
 import Link from "next/link";
 import { ClientArtwork, PageIntro, ContactCta } from "@/components/site/shared";
 import { clients } from "@/content/site";
@@ -46,7 +47,7 @@ export default function Clients() {
               <p>{c.summary}</p>
               <span className="directory-role">{c.role}</span>
               <span className="directory-arrow" aria-hidden="true">
-                ↗
+                <ArrowIcon />
               </span>
             </div>
           </Link>

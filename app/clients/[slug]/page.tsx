@@ -1,3 +1,4 @@
+import ArrowIcon from "@/components/site/arrow-icon";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { clients } from "@/content/site";
@@ -59,7 +60,9 @@ export default async function Client({
               rel="noreferrer"
             >
               Artist / organization background{" "}
-              <span aria-hidden="true">↗</span>
+              <span aria-hidden="true">
+                <ArrowIcon />
+              </span>
             </a>
           )}
           <div className="profile-work">

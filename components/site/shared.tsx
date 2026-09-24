@@ -1,3 +1,4 @@
+import ArrowIcon from "@/components/site/arrow-icon";
 import Link from "next/link";
 import Image from "next/image";
 import PersonalLogo from "@/components/site/personal-logo";
@@ -34,7 +35,9 @@ export function TextLink({
   return (
     <Link href={href} className="text-link">
       {children}
-      <span aria-hidden="true">↗</span>
+      <span aria-hidden="true">
+        <ArrowIcon />
+      </span>
     </Link>
   );
 }
@@ -67,7 +70,9 @@ export function ContactCta() {
         Let’s make
         <br />
         <em>something matter.</em>
-        <span aria-hidden="true">↗</span>
+        <span aria-hidden="true">
+          <ArrowIcon />
+        </span>
       </Link>
     </section>
   );
@@ -93,14 +98,20 @@ export function Footer() {
           target="_blank"
           rel="noreferrer"
         >
-          Instagram <span aria-hidden="true">↗</span>
+          Instagram{" "}
+          <span aria-hidden="true">
+            <ArrowIcon />
+          </span>
         </a>
         <a
           href="https://www.linkedin.com/in/aaronisaiahliu/"
           target="_blank"
           rel="noreferrer"
         >
-          LinkedIn <span aria-hidden="true">↗</span>
+          LinkedIn{" "}
+          <span aria-hidden="true">
+            <ArrowIcon />
+          </span>
         </a>
       </div>
       <span className="copyright">

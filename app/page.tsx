@@ -1,3 +1,4 @@
+import ArrowIcon from "@/components/site/arrow-icon";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
@@ -35,7 +36,9 @@ export default function Home() {
               className="down-link"
               aria-label="Explore the portfolio"
             >
-              <span aria-hidden="true">↓</span>
+              <span aria-hidden="true">
+                <ArrowIcon direction="down" />
+              </span>
             </a>
           </div>
         </div>
@@ -87,7 +90,9 @@ export default function Home() {
               <h3>Sumi Jo</h3>
               <span>
                 Digital & Social Media Strategy{" "}
-                <span aria-hidden="true">↗</span>
+                <span aria-hidden="true">
+                  <ArrowIcon />
+                </span>
               </span>
             </div>
           </Link>
@@ -97,7 +102,9 @@ export default function Home() {
               <h3>Xian Zhang</h3>
               <span>
                 Digital & Social Media Strategy{" "}
-                <span aria-hidden="true">↗</span>
+                <span aria-hidden="true">
+                  <ArrowIcon />
+                </span>
               </span>
             </div>
           </Link>
@@ -164,7 +171,9 @@ export default function Home() {
             <Link href={`/services#service-${i + 1}`} key={s}>
               <span>0{i + 1}</span>
               <h3>{s}</h3>
-              <span aria-hidden="true">↗</span>
+              <span aria-hidden="true">
+                <ArrowIcon />
+              </span>
             </Link>
           ))}
         </div>

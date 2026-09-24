@@ -1,4 +1,5 @@
 "use client";
+import ArrowIcon from "@/components/site/arrow-icon";
 import { useEffect, useState, useRef } from "react";
 import {
   Select,
@@ -99,7 +100,10 @@ export default function ContactForm() {
             void prepare();
           }}
         >
-          Send another inquiry <span>↗</span>
+          Send another inquiry{" "}
+          <span>
+            <ArrowIcon />
+          </span>
         </button>
       </div>
     );
@@ -194,7 +198,10 @@ export default function ContactForm() {
           className="text-link"
           onClick={() => void prepare()}
         >
-          Reload form <span>↻</span>
+          Reload form{" "}
+          <span>
+            <ArrowIcon direction="refresh" />
+          </span>
         </button>
       )}
       <div className="form-submit">
@@ -208,7 +215,9 @@ export default function ContactForm() {
             : !ready
               ? "Preparing form…"
               : "Send inquiry"}
-          <span aria-hidden="true">↗</span>
+          <span aria-hidden="true">
+            <ArrowIcon />
+          </span>
         </button>
         <p>Your details are used to respond to your inquiry.</p>
       </div>

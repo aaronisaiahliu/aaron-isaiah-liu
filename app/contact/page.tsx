@@ -1,3 +1,4 @@
+import ArrowIcon from "@/components/site/arrow-icon";
 import { PageIntro } from "@/components/site/shared";
 import ContactForm from "@/components/site/contact-form";
 import { pageMetadata } from "@/lib/metadata";
@@ -32,14 +33,20 @@ export default function Contact() {
               target="_blank"
               rel="noreferrer"
             >
-              Instagram <span aria-hidden="true">↗</span>
+              Instagram{" "}
+              <span aria-hidden="true">
+                <ArrowIcon />
+              </span>
             </a>
             <a
               href="https://www.linkedin.com/in/aaronisaiahliu/"
               target="_blank"
               rel="noreferrer"
             >
-              LinkedIn <span aria-hidden="true">↗</span>
+              LinkedIn{" "}
+              <span aria-hidden="true">
+                <ArrowIcon />
+              </span>
             </a>
           </div>
         </aside>

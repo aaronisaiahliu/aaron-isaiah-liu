@@ -31,26 +31,65 @@ export default async function Project({
   if (!p) notFound();
   return (
     <>
-      <section className="profile-heading wrap">
-        <TextLink href="/work">Selected work</TextLink>
-        <p className="eyebrow">{p.category}</p>
-        <h1>{p.name}</h1>
-        <BrandMark slug={p.slug} />
-        <p className="profile-lead">{p.lead}</p>
-      </section>
-      <section className={`project-stat wrap ${p.image ? "with-photo" : ""}`}>
-        {p.image && (
-          <Photo
-            id={p.image}
-            alt="Aaron at Hudson Zhang’s book launch reception"
-            priority
-          />
-        )}
-        <div>
-          <span>{p.stat}</span>
-          <p>{p.statLabel}</p>
-        </div>
-      </section>
+      {slug === "classic-divinity" ? (
+        <section
+          className="classic-project-intro wrap"
+          aria-labelledby="classic-project-title"
+        >
+          <TextLink href="/work">Selected work</TextLink>
+          <div className="classic-project-composition">
+            <div className="classic-project-heading">
+              <p className="eyebrow">{p.category}</p>
+              <h1 id="classic-project-title">
+                Classic
+                <br />
+                Divinity
+              </h1>
+              <p className="profile-lead">{p.lead}</p>
+              <p className="eyebrow classic-project-role">
+                Founder / Digital media platform
+              </p>
+            </div>
+            <div className="classic-project-brand">
+              <p className="eyebrow">CLASSICAL MUSIC / DIGITAL CULTURE</p>
+              <BrandMark slug="classic-divinity" />
+              <div className="classic-project-audience">
+                <span>{p.stat}</span>
+                <p>
+                  Combined followers across
+                  <br />
+                  Instagram &amp; TikTok
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : (
+        <>
+          <section className="profile-heading wrap">
+            <TextLink href="/work">Selected work</TextLink>
+            <p className="eyebrow">{p.category}</p>
+            <h1>{p.name}</h1>
+            <BrandMark slug={p.slug} />
+            <p className="profile-lead">{p.lead}</p>
+          </section>
+          <section
+            className={`project-stat wrap ${p.image ? "with-photo" : ""}`}
+          >
+            {p.image && (
+              <Photo
+                id={p.image}
+                alt="Aaron at Hudson Zhang’s book launch reception"
+                priority
+              />
+            )}
+            <div>
+              <span>{p.stat}</span>
+              <p>{p.statLabel}</p>
+            </div>
+          </section>
+        </>
+      )}
       <section className="profile-body wrap">
         <aside>
           <p className="eyebrow">MY ROLE</p>

@@ -1,4 +1,5 @@
 "use client";
+import ArrowIcon from "@/components/site/arrow-icon";
 import Image from "next/image";
 import { useState, useRef } from "react";
 import {
@@ -83,7 +84,7 @@ export default function Gallery() {
                 sizes="(max-width: 700px) 90vw, (max-width: 1000px) 45vw, 40vw"
               />
               <span className="enlarge" aria-hidden="true">
-                ↗
+                <ArrowIcon />
               </span>
             </button>
             <figcaption>
@@ -143,7 +144,7 @@ export default function Gallery() {
                   aria-label="Previous photograph"
                 >
                   <span className="arrow-left" aria-hidden="true">
-                    ←
+                    <ArrowIcon direction="left" />
                   </span>{" "}
                   Previous
                 </button>
@@ -153,7 +154,7 @@ export default function Gallery() {
                 <button onClick={() => move(1)} aria-label="Next photograph">
                   Next{" "}
                   <span className="arrow-right" aria-hidden="true">
-                    →
+                    <ArrowIcon direction="right" />
                   </span>
                 </button>
               </div>

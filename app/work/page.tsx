@@ -1,3 +1,4 @@
+import ArrowIcon from "@/components/site/arrow-icon";
 import Link from "next/link";
 import { projects } from "@/content/site";
 import {
@@ -68,7 +69,10 @@ export default function Work() {
                 </div>
               )}
               <span className="text-link">
-                Explore the project <span aria-hidden="true">↗</span>
+                Explore the project{" "}
+                <span aria-hidden="true">
+                  <ArrowIcon />
+                </span>
               </span>
             </div>
           </Link>

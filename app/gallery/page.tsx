@@ -1,3 +1,4 @@
+import ArrowIcon from "@/components/site/arrow-icon";
 import { PageIntro, ContactCta } from "@/components/site/shared";
 import Gallery from "@/components/site/gallery";
 import { pageMetadata } from "@/lib/metadata";
@@ -22,7 +23,10 @@ export default function GalleryPage() {
       <div className="gallery-meta wrap">
         <span>SELECTED MOMENTS / 24 PHOTOGRAPHS</span>
         <a href="#photographs" className="gallery-explore">
-          CLICK TO EXPLORE <span aria-hidden="true">↓</span>
+          CLICK TO EXPLORE{" "}
+          <span aria-hidden="true">
+            <ArrowIcon direction="down" />
+          </span>
         </a>
       </div>
       <Gallery />
