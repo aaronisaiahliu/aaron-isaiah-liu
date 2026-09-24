@@ -32,4 +32,41 @@ Official portraits were researched, but supplied photographs were chosen for the
   - Image: https://devriesartists.com/wp-content/uploads/2025/04/Jasmine-Choi-2024-3-cStudioSW-scaled.jpg
   - Filename credits Studio SW. No explicit reuse license stated.
 
-To replace a client image, update its entry in `content/site.ts` and add the approved file to the image manifest / shared Photo component. Keep the source, photographer credit, and permission record here.
+To replace a client image, update the artwork mapping in `components/site/shared.tsx` and add the approved file to `public/images`. Keep the source, photographer credit, and permission record here.
+
+## September 2026 refinement
+
+All supplied originals, including both New York Star logos, both Classic Divinity variants and the Korea Music Foundation mark, were visually inspected. Selected web assets retain original colors and aspect ratios:
+
+- `sumi-jo.webp`: Sumi Jo Studio Shot (credit- Yeongjun Kim).jpg — credit retained on profile.
+- `xian-zhang.webp`: Xian Zhang Studio Shot (Credit- Carlin Ma).jpg — credit retained on profile.
+- `jasmine-choi.webp`: Jasmine Choi Studio Shot (Credit- Studio1207).jpg — credit retained on profile.
+- `hudson-zhang-studio.webp`: Hudson Zhang Studio logo.JPEG.
+- `new-york-star.webp`: New York Star Artist Management logo 2.PNG (dark version).
+- `401-entertainment.webp`: 401 Entertainment logo.jpg.
+- `classic-divinity.webp`: Classic Divinity logo without text.PNG.
+- Homepage `photo-04.webp` derives from Aaron Isaiah Liu portrait 1.heic; original square composition, cropped within the retained hero geometry.
+
+Gallery professional titles live separately in `content/gallery-titles.json` so regenerating image derivatives preserves them. Titles are transcribed from supplied filenames and the refinement brief. Cai Guo-Qiang's “Visual artist” title is supported by his [official biography](https://caiguoqiang.com/about-the-artist/). Group captions identify individual roles without inferring titles for unnamed team members.
+
+Yiruma is retained only as an example within the New York Star relationship. The former standalone project has been removed from navigation, content and sitemap; its old URL returns the site's not-found page.
+
+
+## Second refinement — September 24, 2026
+
+- Added two direct clients and user-supplied figures: Sumi Jo International Singing Competition (500+ applications / 55 countries) and Opera Italiana is in the Air (approximately 3,000–5,000 attendees). Figures describe event scale, not attributed conversions or audited campaign results.
+- `sumi-jo-competition.webp` uses the supplied `Sumi Jo International Singing Competition logo.jpg` (a portrait-format official promotional artwork, displayed complete).
+- `opera-italiana.webp` uses `Opera Italiana is in the Air logo.webp`, maintaining its transparent wide aspect ratio on white.
+- `competition-event.webp` uses `Sumi jo international singing competition footage (credit- Alterego).jpg`.
+- `opera-event.webp` uses `Opera Italiana is in the Air (concert footage) - credit- STUDIOP23.webp`.
+- All new still images and the contents of `Opera Italiana is in the Air logo 2.mhtml` were inspected. The MHTML is a saved social webpage; the dedicated supplied logo was used instead. The additional Washington LaPresse image and uncredited competition venue image were inspected but not needed in the final selection. No video was supplied.
+- Hudson logo is encoded losslessly and displayed without secondary optimization; surrounding green exactly matches its source background, RGB(1, 65, 38). Classic Divinity also uses lossless encoding and matched burgundy.
+- Group caption rows are defined explicitly in `components/site/gallery.tsx`, retaining the verified roles from the prior pass. Quinn Kelsey is limited to 280px on desktop and in the lightbox, and smaller in the mobile grid.
+
+## Final personal wordmark — September 24, 2026
+
+`public/images/aaron-isaiah-liu-logo-final.png` is a byte-for-byte copy of the user’s `Aaron Isaiah Liu logo final.png`. SHA-256: `e976e798094312cbfee12ba8edf29006fb8b91a2c35744de7ea6514d8097ec2a`.
+
+The 1672 × 941 PNG is served unoptimized, without recoloring, filters, blend modes, resampling, or destructive cropping. `PersonalLogo` uses a CSS viewing window corresponding to source x=180..1500 and y=354..566, retaining every letter, the neutral Liu tone, underline, and subtitle. Header/footer use a compatible #fefdf9 light surface to avoid an image-background rectangle. Original image remains untouched.
+
+The navigation and footer use the logo. The large homepage name treatment, biographies, metadata, structured data, copyright and accessibility labels remain semantic text. Georgia display serif is retained with slightly more open heading tracking; the shared UI font stack starts with Helvetica Neue and retains Arial/Helvetica fallbacks. Mobile header spacing gives the full logo its own row.

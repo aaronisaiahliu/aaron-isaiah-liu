@@ -1,7 +1,7 @@
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { clients } from "@/content/site";
-import images from "@/content/images.json";
-import { Photo, ContactCta, TextLink } from "@/components/site/shared";
+import { ClientArtwork, ContactCta, TextLink } from "@/components/site/shared";
 import { pageMetadata } from "@/lib/metadata";
 export function generateStaticParams() {
   return clients.map((c) => ({ slug: c.slug }));
@@ -34,25 +34,9 @@ export default async function Client({
         <h1>{c.name}</h1>
         <p className="profile-lead">{c.summary}</p>
       </section>
-      {c.image ? (
-        <figure
-          className={`profile-hero wrap ${c.slug === "hudson-zhang-studio" ? "landscape" : ""}`}
-        >
-          <Photo id={c.image} alt={c.alt} priority />
-          <figcaption className="caption">
-            {c.alt} · Personal archive
-          </figcaption>
-        </figure>
-      ) : (
-        <div className="entertainment-banner wrap">
-          <span>401</span>
-          <p>
-            Entertainment.
-            <br />
-            In conversation.
-          </p>
-        </div>
-      )}
+      <figure className="profile-hero studio-profile wrap">
+        <ClientArtwork slug={c.slug} priority credit />
+      </figure>
       <section className="profile-body wrap">
         <aside>
           <p className="eyebrow">MY ROLE</p>
@@ -74,7 +58,8 @@ export default async function Client({
               target="_blank"
               rel="noreferrer"
             >
-              Artist / organization background ↗
+              Artist / organization background{" "}
+              <span aria-hidden="true">↗</span>
             </a>
           )}
           <div className="profile-work">
@@ -86,6 +71,19 @@ export default async function Client({
             </h2>
             <p>{c.work}</p>
           </div>
+          {c.stats && (
+            <div className="client-evidence">
+              <div className="evidence-figures">
+                {c.stats.map(([value, label]) => (
+                  <div key={label}>
+                    <strong>{value}</strong>
+                    <span>{label}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="caption">{c.statsNote}</p>
+            </div>
+          )}
           {c.entries && (
             <div className="project-entries">
               {c.entries.map(([title, description]) => (
@@ -98,26 +96,25 @@ export default async function Client({
           )}
         </div>
       </section>
-      {c.gallery.length > 1 && (
-        <section className="profile-sequence wrap">
-          <div className="section-heading">
-            <p className="eyebrow">FROM THE PERSONAL ARCHIVE</p>
-            <TextLink href="/gallery">More moments</TextLink>
-          </div>
-          <div>
-            {c.gallery
-              .filter((id) => id !== c.image)
-              .slice(0, 2)
-              .map((id) => (
-                <Photo
-                  id={id}
-                  key={id}
-                  alt={`${id === 5 || id === 6 ? "Aaron at " : "Aaron with "}${images.find((image) => image.id === id)?.caption}`}
-                />
-              ))}
-          </div>
-        </section>
+      {c.event && (
+        <figure className="client-event wrap">
+          <Image
+            src={c.event.src}
+            alt={c.event.alt}
+            width={c.event.width}
+            height={c.event.height}
+            sizes="90vw"
+          />
+          <figcaption className="caption">
+            {c.event.caption} · Photograph: {c.event.credit}
+          </figcaption>
+        </figure>
       )}
+      <div className="archive-link wrap">
+        <TextLink href="/gallery">
+          Conversations & moments from the archive
+        </TextLink>
+      </div>
       <section className="next-profile wrap">
         <p className="eyebrow">NEXT RELATIONSHIP</p>
         <TextLink href={`/clients/${next.slug}`}>{next.name}</TextLink>

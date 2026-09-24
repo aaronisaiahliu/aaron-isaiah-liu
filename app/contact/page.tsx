@@ -32,14 +32,14 @@ export default function Contact() {
               target="_blank"
               rel="noreferrer"
             >
-              Instagram ↗
+              Instagram <span aria-hidden="true">↗</span>
             </a>
             <a
               href="https://www.linkedin.com/in/aaronisaiahliu/"
               target="_blank"
               rel="noreferrer"
             >
-              LinkedIn ↗
+              LinkedIn <span aria-hidden="true">↗</span>
             </a>
           </div>
         </aside>

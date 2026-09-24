@@ -5,7 +5,13 @@ export const metadata = pageMetadata(
   "Independent marketing and digital strategy for artists, cultural organizations, and creative brands.",
   "/",
 );
-import { Photo, TextLink, ContactCta } from "@/components/site/shared";
+import {
+  Photo,
+  ClientArtwork,
+  BrandMark,
+  TextLink,
+  ContactCta,
+} from "@/components/site/shared";
 export default function Home() {
   return (
     <>
@@ -15,9 +21,9 @@ export default function Home() {
             INDEPENDENT CONSULTANT / INTERNATIONAL OUTLOOK
           </p>
           <h1>
-            Aaron
+            Digital strategy
             <br />
-            Isaiah <em>Liu.</em>
+            <em>for culture.</em>
           </h1>
           <div className="hero-bottom">
             <p>
@@ -29,17 +35,16 @@ export default function Home() {
               className="down-link"
               aria-label="Explore the portfolio"
             >
-              ↓
+              <span aria-hidden="true">↓</span>
             </a>
           </div>
         </div>
-        <div className="hero-image">
+        <div className="hero-image ambient-photo">
           <Photo
-            id={1}
+            id={4}
             alt="Black and white portrait of Aaron Isaiah Liu"
             priority
           />
-          <span className="image-index">01 — A DIFFERENT PERSPECTIVE</span>
         </div>
         <div className="hero-side">CULTURE × STRATEGY × STORYTELLING</div>
       </section>
@@ -77,59 +82,62 @@ export default function Home() {
         </div>
         <div className="client-pair">
           <Link href="/clients/sumi-jo" className="client-feature">
-            <Photo id={24} alt="Aaron with soprano Sumi Jo" />
+            <ClientArtwork slug="sumi-jo" />
             <div className="feature-caption">
               <h3>Sumi Jo</h3>
-              <span>Digital & social media strategy ↗</span>
+              <span>
+                Digital & Social Media Strategy{" "}
+                <span aria-hidden="true">↗</span>
+              </span>
             </div>
           </Link>
-          <Link
-            href="/clients/hudson-zhang-studio"
-            className="client-feature offset"
-          >
-            <Photo
-              id={5}
-              alt="Aaron at Hudson Zhang’s book launch reception at the Harvard Club of New York City"
-            />
+          <Link href="/clients/xian-zhang" className="client-feature offset">
+            <ClientArtwork slug="xian-zhang" />
             <div className="feature-caption">
-              <h3>Hudson Zhang Studio</h3>
-              <span>Media & communications ↗</span>
+              <h3>Xian Zhang</h3>
+              <span>
+                Digital & Social Media Strategy{" "}
+                <span aria-hidden="true">↗</span>
+              </span>
             </div>
           </Link>
         </div>
         <div className="name-strip">
-          <Link href="/clients/xian-zhang">Xian Zhang</Link>
           <Link href="/clients/jasmine-choi">Jasmine Choi</Link>
-          <Link href="/clients/new-york-star">
-            New York Star Artist Management
+          <Link href="/clients/opera-italiana">
+            Opera Italiana is in the Air
           </Link>
-          <Link href="/clients/401-entertainment">401 Entertainment</Link>
+          <Link href="/clients/hudson-zhang-studio">Hudson Zhang Studio</Link>
         </div>
       </section>
-      <section className="divinity">
-        <div className="divinity-top">
-          <span className="eyebrow">BUILT, NOT JUST ADVISED</span>
-          <span className="eyebrow">CLASSIC DIVINITY / FOUNDER</span>
-        </div>
-        <div className="million">
-          1M<span>+</span>
-        </div>
-        <div className="divinity-bottom">
-          <p>
-            Followers across
-            <br />
-            Instagram & TikTok
-          </p>
-          <div>
-            <h2>
+      <section className="home-divinity wrap" aria-labelledby="divinity-title">
+        <p className="eyebrow home-divinity-label">BUILT, NOT JUST ADVISED</p>
+        <div className="home-divinity-feature">
+          <div className="home-divinity-art">
+            <span className="eyebrow">CLASSICAL MUSIC / DIGITAL CULTURE</span>
+            <BrandMark slug="classic-divinity" />
+            <div className="home-divinity-audience">
+              <span className="home-divinity-number">
+                1M<span>+</span>
+              </span>
+              <p>
+                Combined followers across
+                <br />
+                Instagram &amp; TikTok
+              </p>
+            </div>
+          </div>
+          <div className="home-divinity-copy">
+            <p className="eyebrow">FOUNDER / DIGITAL MEDIA PLATFORM</p>
+            <h2 id="divinity-title">Classic Divinity</h2>
+            <p className="home-divinity-statement">
               A world of music.
               <br />
               <em>A new generation of listeners.</em>
-            </h2>
-            <p>
-              I founded Classic Divinity to bring classical music into the
-              everyday digital conversation. Building that audience informs
-              every strategy I create.
+            </p>
+            <p className="home-divinity-description">
+              I founded Classic Divinity and built its strategy, brand, content
+              direction, audience, partnerships, and digital presence.
             </p>
             <TextLink href="/work/classic-divinity">Explore the story</TextLink>
           </div>
@@ -151,7 +159,6 @@ export default function Home() {
             "Digital marketing & campaigns",
             "Web design & digital presence",
             "Content & creative direction",
-            "Newsletters & CRM",
             "Arts & entertainment marketing",
           ].map((s, i) => (
             <Link href={`/services#service-${i + 1}`} key={s}>
@@ -174,7 +181,7 @@ export default function Home() {
           </div>
           <TextLink href="/gallery">View the gallery</TextLink>
         </div>
-        <div className="teaser-images">
+        <div className="teaser-images ambient-photo">
           <Photo id={8} alt="Aaron with Cai Guo-Qiang" />
           <Photo id={16} alt="Aaron with Jasmine Choi and Alice Sara Ott" />
           <Photo id={28} alt="Aaron with Gil Shaham" />

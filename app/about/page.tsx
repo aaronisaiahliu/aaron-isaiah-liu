@@ -18,7 +18,7 @@ export default function About() {
         eyebrow="About"
         title="A cultural perspective. A digital instinct."
       />
-      <section className="about-story wrap">
+      <section className="about-story wrap ambient-photo">
         <Photo id={3} alt="Portrait of Aaron Isaiah Liu" priority />
         <div className="about-prose">
           <p className="eyebrow">AARON ISAIAH LIU</p>
@@ -34,9 +34,9 @@ export default function About() {
           </p>
           <p>
             My practice spans social media strategy, digital marketing, creative
-            direction, websites, and newsletters. I’m interested in how these
-            parts fit together: the story an organization tells, the platforms
-            it uses, and the audience it builds over time.
+            direction, and websites. I’m interested in how these parts fit
+            together: the story an organization tells, the platforms it uses,
+            and the audience it builds over time.
           </p>
           <p>
             As the founder of Classic Divinity, I’ve built a classical music

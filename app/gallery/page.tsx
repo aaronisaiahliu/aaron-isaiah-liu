@@ -21,7 +21,9 @@ export default function GalleryPage() {
       </PageIntro>
       <div className="gallery-meta wrap">
         <span>SELECTED MOMENTS / 24 PHOTOGRAPHS</span>
-        <span>CLICK TO EXPLORE</span>
+        <a href="#photographs" className="gallery-explore">
+          CLICK TO EXPLORE <span aria-hidden="true">↓</span>
+        </a>
       </div>
       <Gallery />
       <ContactCta />

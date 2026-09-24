@@ -13,7 +13,6 @@ const types = [
   "Digital marketing",
   "Web design & digital presence",
   "Content & creative direction",
-  "Newsletters & CRM",
   "Arts & entertainment marketing",
 ];
 export default function ContactForm() {
@@ -211,11 +210,7 @@ export default function ContactForm() {
               : "Send inquiry"}
           <span aria-hidden="true">↗</span>
         </button>
-        <p>
-          Your details are used to respond to your inquiry.
-          <br />
-          You won’t be added to a mailing list.
-        </p>
+        <p>Your details are used to respond to your inquiry.</p>
       </div>
     </form>
   );

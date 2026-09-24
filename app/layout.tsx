@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navigation from "@/components/site/navigation";
 import { Footer } from "@/components/site/shared";
 import "./globals.css";
+import PageTransition from "@/components/site/page-transition";
 const origin = process.env.NEXT_PUBLIC_SITE_URL;
 export const metadata: Metadata = {
   ...(origin ? { metadataBase: new URL(origin) } : {}),
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
       ? {
           images: [
             {
-              url: new URL("/images/photo-01.webp", origin).toString(),
+              url: new URL("/images/photo-04.webp", origin).toString(),
               alt: "Aaron Isaiah Liu",
             },
           ],
@@ -47,7 +48,9 @@ export default function RootLayout({
           Skip to content
         </a>
         <Navigation />
-        <main id="main">{children}</main>
+        <main id="main">
+          <PageTransition>{children}</PageTransition>
+        </main>
         <Footer />
         <script
           type="application/ld+json"

@@ -1,6 +1,6 @@
 # Aaron Isaiah Liu — portfolio
 
-An editorial portfolio with 16 content routes: Home, About, Services, Clients, six client profiles, Work, three project stories, Gallery, and Contact. Built with Next.js App Router APIs, TypeScript, React, and Tailwind CSS. The Sites preview uses Vinext; a native Next.js build and Vercel configuration are also included.
+An editorial portfolio with 17 content routes: Home, About, Services, Clients, eight client profiles, Work, two project stories, Gallery, and Contact. Built with Next.js App Router APIs, TypeScript, React, and Tailwind CSS. The Sites preview uses Vinext; a native Next.js build and Vercel configuration are also included.
 
 ## Run locally
 
@@ -47,4 +47,4 @@ Supplied original images are untouched in the parent workspace. Public files are
 
 ## Design and accessibility
 
-Ink, ivory, and blue-gray; large editorial serif typography with restrained sans-serif labels. Asymmetric client pairs, typographic case studies, responsive gallery sequences. Semantic navigation and forms, keyboard-accessible lightbox with focus restoration, visible focus, accessible form statuses, and reduced-motion support. No trackers or mailing-list enrollment.
+Ink, ivory, and blue-gray; large editorial serif typography with restrained sans-serif labels. Asymmetric client pairs, typographic case studies, responsive gallery sequences. Semantic navigation and forms, keyboard-accessible lightbox with focus restoration, visible focus, accessible form statuses, and reduced-motion support. No trackers.

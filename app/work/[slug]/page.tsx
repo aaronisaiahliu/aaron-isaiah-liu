@@ -1,6 +1,11 @@
 import { notFound } from "next/navigation";
 import { projects } from "@/content/site";
-import { Photo, ContactCta, TextLink } from "@/components/site/shared";
+import {
+  Photo,
+  BrandMark,
+  ContactCta,
+  TextLink,
+} from "@/components/site/shared";
 import { pageMetadata } from "@/lib/metadata";
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -30,6 +35,7 @@ export default async function Project({
         <TextLink href="/work">Selected work</TextLink>
         <p className="eyebrow">{p.category}</p>
         <h1>{p.name}</h1>
+        <BrandMark slug={p.slug} />
         <p className="profile-lead">{p.lead}</p>
       </section>
       <section className={`project-stat wrap ${p.image ? "with-photo" : ""}`}>
@@ -77,11 +83,6 @@ export default async function Project({
           {slug === "hudson-zhang-studio" && (
             <TextLink href="/clients/hudson-zhang-studio">
               Meet the studio
-            </TextLink>
-          )}
-          {slug === "yiruma-carnegie-hall" && (
-            <TextLink href="/clients/new-york-star">
-              More concert marketing
             </TextLink>
           )}
         </div>

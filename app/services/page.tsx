@@ -3,7 +3,7 @@ import { services } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
   "Services",
-  "Social media strategy, digital marketing, web design, creative direction, newsletters, and arts marketing.",
+  "Social media strategy, digital marketing, web design, creative direction, and arts marketing.",
   "/services",
 );
 export default function Services() {

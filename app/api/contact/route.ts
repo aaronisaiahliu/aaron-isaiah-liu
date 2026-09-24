@@ -16,7 +16,6 @@ const schema = z.object({
     "Digital marketing",
     "Web design & digital presence",
     "Content & creative direction",
-    "Newsletters & CRM",
     "Arts & entertainment marketing",
   ]),
   token: z.string().max(300),

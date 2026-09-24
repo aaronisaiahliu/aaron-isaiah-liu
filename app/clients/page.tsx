@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Photo, PageIntro, ContactCta } from "@/components/site/shared";
+import { ClientArtwork, PageIntro, ContactCta } from "@/components/site/shared";
 import { clients } from "@/content/site";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
@@ -23,22 +23,26 @@ export default function Clients() {
       <div className="client-directory wrap">
         {clients.map((c, i) => (
           <Link
-            className={`directory-entry ${c.image ? "" : "type-only"}`}
+            className={`directory-entry${c.slug === "sumi-jo-competition" ? " directory-competition" : ""}`}
             href={`/clients/${c.slug}`}
             key={c.slug}
           >
             <span className="eyebrow directory-number">
               0{i + 1} / {c.discipline}
             </span>
-            {c.image ? (
-              <Photo id={c.image} alt={c.alt} />
-            ) : (
-              <div className="type-art" aria-hidden="true">
-                401<span>ENTERTAINMENT</span>
-              </div>
-            )}
+            <ClientArtwork slug={c.slug} />
             <div className="directory-copy">
-              <h2>{c.name}</h2>
+              <h2>
+                {c.slug === "sumi-jo-competition" ? (
+                  <>
+                    Sumi Jo International
+                    <br />
+                    Singing Competition
+                  </>
+                ) : (
+                  c.name
+                )}
+              </h2>
               <p>{c.summary}</p>
               <span className="directory-role">{c.role}</span>
               <span className="directory-arrow" aria-hidden="true">

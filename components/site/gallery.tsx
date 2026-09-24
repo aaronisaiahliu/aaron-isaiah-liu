@@ -8,6 +8,45 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import images from "@/content/images.json";
+import titles from "@/content/gallery-titles.json";
+const profession = (id: number) =>
+  (titles as Record<string, string>)[String(id)];
+const people: Record<number, { name: string; title?: string }[]> = {
+  7: [
+    { name: "Leah Li", title: "CEO, New York Star Artist Management" },
+    { name: "Xian Zhang", title: "Conductor" },
+  ],
+  16: [
+    { name: "Jasmine Choi", title: "Flutist" },
+    { name: "Alice Sara Ott", title: "Pianist" },
+  ],
+  18: [
+    { name: "Danny Koo", title: "Violinist" },
+    { name: "Korea Music Foundation team" },
+  ],
+  21: [
+    { name: "Dani Bedoni", title: "Producer" },
+    { name: "Jasmine Choi", title: "Flutist" },
+    { name: "Adi Konstatzky", title: "Entrepreneur" },
+  ],
+};
+function GalleryCaption({ photo }: { photo: (typeof images)[number] }) {
+  const rows = people[photo.id] ?? [
+    { name: photo.caption, title: profession(photo.id) },
+  ];
+  return (
+    <span className="gallery-caption-lines">
+      {rows.map((person) => (
+        <span className="caption-person" key={person.name}>
+          {person.name}
+          {person.title && (
+            <span className="caption-role"> — {person.title}</span>
+          )}
+        </span>
+      ))}
+    </span>
+  );
+}
 const order = [
   24, 23, 11, 12, 15, 14, 17, 5, 6, 8, 16, 28, 27, 7, 18, 26, 10, 9, 13, 21, 22,
   19, 20, 25,
@@ -23,9 +62,12 @@ export default function Gallery() {
     );
   return (
     <>
-      <div className="gallery-grid wrap">
+      <div id="photographs" className="gallery-grid wrap">
         {photos.map((p, i) => (
-          <figure className={`gallery-item gallery-item-${i % 7}`} key={p.id}>
+          <figure
+            className={`gallery-item gallery-item-${i % 7} ${p.id === 9 ? "gallery-small" : ""}`}
+            key={p.id}
+          >
             <button
               onClick={(event) => {
                 lastTrigger.current = event.currentTarget;
@@ -45,7 +87,7 @@ export default function Gallery() {
               </span>
             </button>
             <figcaption>
-              <span>{p.caption}</span>
+              <GalleryCaption photo={p} />
               <span className="photo-number">
                 {String(i + 1).padStart(2, "0")}
               </span>
@@ -79,13 +121,15 @@ export default function Gallery() {
           {current && (
             <>
               <DialogTitle className="gallery-dialog-title">
-                {current.caption}
+                <GalleryCaption photo={current} />
               </DialogTitle>
               <DialogDescription className="sr-only">
                 Personal archive photograph. Use the previous and next buttons
                 or your arrow keys to browse. Escape closes the photograph.
               </DialogDescription>
-              <div className="lightbox-image">
+              <div
+                className={`lightbox-image ${current.id === 9 ? "lightbox-small" : ""}`}
+              >
                 <Image
                   src={current.src}
                   alt={`${current.id === 5 || current.id === 6 ? "Aaron at " : "Aaron with "}${current.caption}`}
@@ -98,13 +142,19 @@ export default function Gallery() {
                   onClick={() => move(-1)}
                   aria-label="Previous photograph"
                 >
-                  ← Previous
+                  <span className="arrow-left" aria-hidden="true">
+                    ←
+                  </span>{" "}
+                  Previous
                 </button>
                 <span>
                   {selected! + 1} / {photos.length}
                 </span>
                 <button onClick={() => move(1)} aria-label="Next photograph">
-                  Next →
+                  Next{" "}
+                  <span className="arrow-right" aria-hidden="true">
+                    →
+                  </span>
                 </button>
               </div>
             </>

@@ -7,7 +7,7 @@ export const clients = [
     alt: "Aaron with soprano Sumi Jo",
     gallery: [23, 24],
     bio: "South Korean coloratura soprano Sumi Jo has built an international career across the opera and concert stage. Her early collaborations with Herbert von Karajan at the Salzburg Festival helped introduce her distinctive voice to audiences around the world.",
-    role: "Digital & social media strategy",
+    role: "Digital & Social Media Strategy",
     summary: "A considered digital presence for an unmistakable voice.",
     work: "I work with Sumi Jo on digital and social media strategy and related marketing, translating an international performing career into clear, engaging communication across platforms.",
     scope: [
@@ -26,7 +26,7 @@ export const clients = [
     alt: "Aaron in conversation with conductor Xian Zhang",
     gallery: [11, 12, 7],
     bio: "Xian Zhang is an international conductor and Music Director of the Seattle Symphony. Her work spans symphonic and operatic repertoire, with appearances on major concert stages around the world.",
-    role: "Digital strategy & communications",
+    role: "Digital & Social Media Strategy",
     summary:
       "Connecting life on the podium with audiences beyond the concert hall.",
     work: "My work with Xian Zhang focuses on digital and social media strategy and communications, supporting a coherent public presence around her work as a conductor.",
@@ -47,7 +47,7 @@ export const clients = [
     alt: "Aaron with flutist Jasmine Choi",
     gallery: [15, 14, 17, 16],
     bio: "Jasmine Choi is an internationally active flutist whose career encompasses solo performance, recording, and teaching. A graduate of Curtis and Juilliard, she previously served as principal flute of the Vienna Symphony and associate principal flute of the Cincinnati Symphony.",
-    role: "Digital marketing, branding & web presence",
+    role: "Digital & Social Media Strategy",
     summary: "An artist’s identity, thoughtfully connected across platforms.",
     work: "I work with Jasmine on digital marketing, social media, branding, and web presence—bringing these parts of her public identity into a coherent whole.",
     scope: [
@@ -96,8 +96,8 @@ export const clients = [
     sourceName: "New York Star Artist Management — official website",
     entries: [
       [
-        "Yiruma — Carnegie Hall",
-        "I helped promote the concert at Isaac Stern Auditorium and contributed to the marketing campaign supporting the sold-out performance.",
+        "Yiruma — Carnegie Hall, Isaac Stern Auditorium",
+        "I contributed to the digital promotion surrounding the concert, which sold out Isaac Stern Auditorium.",
       ],
       [
         "Danny Koo — Carnegie Hall",
@@ -123,6 +123,69 @@ export const clients = [
     scope: ["Social media promotion", "Artist campaigns", "Concert promotion"],
     source: "",
     sourceName: "",
+  },
+  {
+    slug: "sumi-jo-competition",
+    name: "Sumi Jo International Singing Competition",
+    discipline: "International competition",
+    image: null,
+    alt: "Sumi Jo International Singing Competition official artwork",
+    gallery: [],
+    bio: "An international singing competition bringing together singers from around the world.",
+    role: "Strategic Digital Promotion",
+    summary: "An international stage. A global applicant pool.",
+    work: "I created strategic digital promotional campaigns for the competition, supporting an international applicant pool of more than 500 singers from 55 countries.",
+    scope: [
+      "Promotional strategy",
+      "Digital campaigns",
+      "International audience outreach",
+    ],
+    source: "",
+    sourceName: "",
+    stats: [
+      ["500+", "Applications"],
+      ["55", "Countries"],
+    ],
+    statsNote:
+      "Competition-wide application figures; digital promotion was one part of the wider effort.",
+    event: {
+      src: "/images/competition-event.webp",
+      width: 1280,
+      height: 854,
+      alt: "Singers gathered onstage at the Sumi Jo International Singing Competition",
+      caption: "Sumi Jo International Singing Competition",
+      credit: "Alterego",
+    },
+  },
+  {
+    slug: "opera-italiana",
+    name: "Opera Italiana is in the Air",
+    discipline: "Opera festival",
+    image: null,
+    alt: "Opera Italiana is in the Air official logo",
+    gallery: [],
+    bio: "A free public event bringing live opera into a shared, open-air setting.",
+    role: "Strategic Digital Promotion",
+    summary: "Live opera, open to everyone.",
+    work: "I have created strategic promotional campaigns across multiple festival seasons. The free public event has drawn live audiences of approximately 3,000–5,000 attendees.",
+    scope: [
+      "Promotional strategy",
+      "Digital campaigns",
+      "Multi-season festival promotion",
+    ],
+    source: "",
+    sourceName: "",
+    stats: [["3,000–5,000", "Approximate attendees"]],
+    statsNote:
+      "An approximate event attendance range, reflecting the festival’s overall audience.",
+    event: {
+      src: "/images/opera-event.webp",
+      width: 1600,
+      height: 1067,
+      alt: "An audience gathered around an outdoor bandshell for Opera Italiana is in the Air",
+      caption: "Opera Italiana is in the Air",
+      credit: "STUDIOP23",
+    },
   },
 ];
 export const services = [
@@ -175,18 +238,6 @@ export const services = [
     ],
   },
   {
-    name: "Newsletters & CRM",
-    line: "Keep the conversation going.",
-    description:
-      "Thoughtful communication for the audience you already have. Newsletters that balance editorial substance, clear design, and a useful reason to open the next edition.",
-    items: [
-      "Newsletter strategy",
-      "Editorial planning & design",
-      "Audience communications",
-      "Retention & CRM thinking",
-    ],
-  },
-  {
     name: "Arts & entertainment marketing",
     line: "Bring people closer to the work.",
     description:
@@ -221,28 +272,6 @@ export const projects = [
       "Editorial direction",
       "Artist promotion",
       "Audience development",
-    ],
-  },
-  {
-    slug: "yiruma-carnegie-hall",
-    name: "Yiruma at Carnegie Hall",
-    category: "Concert marketing / Digital promotion",
-    lead: "An audience for a live moment.",
-    role: "Promotional & marketing support",
-    stat: "Sold out",
-    statLabel: "Isaac Stern Auditorium, Carnegie Hall",
-    image: null,
-    context:
-      "Through my work with New York Star Artist Management, I helped promote Yiruma’s concert at Carnegie Hall’s Isaac Stern Auditorium.",
-    approach:
-      "I contributed to the digital promotion and marketing campaign supporting the performance, helping connect the concert with prospective listeners.",
-    result:
-      "The performance sold out. My role was one part of the broader promotional effort, supporting the campaign alongside the presenting organization.",
-    note: "Project scope and outcome supplied by Aaron Isaiah Liu; no campaign-level performance metrics are claimed.",
-    scope: [
-      "Digital promotion",
-      "Concert marketing",
-      "Audience communications",
     ],
   },
   {
