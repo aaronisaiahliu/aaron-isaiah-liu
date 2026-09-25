@@ -1,6 +1,12 @@
+export const backgroundLabels = {
+  artist: "Artist background",
+  organization: "Organization background",
+} as const;
+
 export const clients = [
   {
     slug: "sumi-jo",
+    subjectType: "artist" as const,
     name: "Sumi Jo",
     discipline: "Soprano",
     image: 24,
@@ -20,6 +26,7 @@ export const clients = [
   },
   {
     slug: "xian-zhang",
+    subjectType: "artist" as const,
     name: "Xian Zhang",
     discipline: "Conductor",
     image: 11,
@@ -40,6 +47,7 @@ export const clients = [
   },
   {
     slug: "jasmine-choi",
+    subjectType: "artist" as const,
     name: "Jasmine Choi",
     discipline: "Flutist",
     image: 15,
@@ -60,6 +68,7 @@ export const clients = [
   },
   {
     slug: "hudson-zhang-studio",
+    subjectType: "organization" as const,
     name: "Hudson Zhang Studio",
     discipline: "Visual art",
     image: 5,
@@ -80,6 +89,7 @@ export const clients = [
   },
   {
     slug: "new-york-star",
+    subjectType: "organization" as const,
     name: "New York Star Artist Management",
     discipline: "Artist management",
     image: 27,
@@ -109,6 +119,7 @@ export const clients = [
   },
   {
     slug: "401-entertainment",
+    subjectType: "organization" as const,
     name: "401 Entertainment",
     discipline: "Entertainment",
     image: null,
@@ -124,6 +135,7 @@ export const clients = [
   },
   {
     slug: "sumi-jo-competition",
+    subjectType: "organization" as const,
     name: "Sumi Jo International Singing Competition",
     discipline: "International competition",
     image: null,
@@ -157,6 +169,7 @@ export const clients = [
   },
   {
     slug: "opera-italiana",
+    subjectType: "organization" as const,
     name: "Opera Italiana is in the Air",
     discipline: "Opera festival",
     image: null,

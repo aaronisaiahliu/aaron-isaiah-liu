@@ -2,7 +2,7 @@ import SocialLinks from "@/components/site/social-links";
 import ArrowIcon from "@/components/site/arrow-icon";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { clients } from "@/content/site";
+import { clients, backgroundLabels } from "@/content/site";
 import { ClientArtwork, ContactCta, TextLink } from "@/components/site/shared";
 import { pageMetadata } from "@/lib/metadata";
 export function generateStaticParams() {
@@ -60,7 +60,7 @@ export default async function Client({
               target="_blank"
               rel="noopener noreferrer"
             >
-              Artist / organization background{" "}
+              {backgroundLabels[c.subjectType]}{" "}
               <span aria-hidden="true">
                 <ArrowIcon />
               </span>

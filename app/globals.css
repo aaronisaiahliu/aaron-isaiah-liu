@@ -3193,3 +3193,12 @@ body,
     font-size: clamp(2rem, 10vw, 3.5rem);
   }
 }
+
+/* Dialog autofocus must not draw the full-width menu hit area's ring after a tap.
+   Keyboard activation and subsequent key use retain the global focus-visible ring. */
+.menu-toggle {
+  -webkit-tap-highlight-color: transparent;
+}
+.menu-toggle[data-focus-origin="pointer"]:focus {
+  outline: none;
+}

@@ -38,6 +38,9 @@ export default function Navigation() {
   const path = usePathname();
   const [open, setOpen] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
+  const [focusOrigin, setFocusOrigin] = useState<"pointer" | "keyboard">(
+    "keyboard",
+  );
   const closeButton = useRef<HTMLButtonElement>(null);
   const navigating = useRef(false);
   useEffect(() => {
@@ -78,7 +81,13 @@ export default function Navigation() {
           <PersonalLogo priority />
         </Link>
         <Dialog.Trigger asChild>
-          <button className="menu-toggle" aria-label="Open navigation menu">
+          <button
+            className="menu-toggle"
+            aria-label="Open navigation menu"
+            data-focus-origin={focusOrigin}
+            onPointerDown={() => setFocusOrigin("pointer")}
+            onKeyDown={() => setFocusOrigin("keyboard")}
+          >
             <span>MENU</span>
             <MenuSymbol />
           </button>
@@ -100,9 +109,11 @@ export default function Navigation() {
         <Dialog.Content
           className="mobile-menu-panel"
           aria-describedby={undefined}
+          onPointerDownCapture={() => setFocusOrigin("pointer")}
+          onKeyDownCapture={() => setFocusOrigin("keyboard")}
           onOpenAutoFocus={(event) => {
             event.preventDefault();
-            closeButton.current?.focus();
+            closeButton.current?.focus({ preventScroll: true });
           }}
           onCloseAutoFocus={(event) => {
             if (navigating.current) event.preventDefault();
@@ -123,6 +134,7 @@ export default function Navigation() {
                 ref={closeButton}
                 className="menu-toggle"
                 aria-label="Close navigation menu"
+                data-focus-origin={focusOrigin}
               >
                 <span>MENU</span>
                 <MenuSymbol />
