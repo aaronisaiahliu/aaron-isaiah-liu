@@ -1,0 +1,22 @@
+{
+  "name": "Aaron Isaiah Liu",
+  "short_name": "Aaron Isaiah Liu",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fefdf9",
+  "theme_color": "#fefdf9",
+  "icons": [
+    {
+      "src": "/icons/ail-192-1390b66282.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/ail-512-1390b66282.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

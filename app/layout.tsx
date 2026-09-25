@@ -34,7 +34,32 @@ export const metadata: Metadata = {
     description:
       "Independent marketing and digital strategy for artists, cultural organizations, and creative brands.",
   },
-  icons: { icon: "/favicon.svg" },
+  manifest: "/site.webmanifest?v=1390b66282",
+  icons: {
+    icon: [
+      {
+        url: "/favicon.ico?v=1390b66282",
+        sizes: "16x16 32x32 48x48",
+        type: "image/x-icon",
+      },
+      {
+        url: "/icons/ail-16-1390b66282.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+      {
+        url: "/icons/ail-32-1390b66282.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+    ],
+    shortcut: "/favicon.ico?v=1390b66282",
+    apple: {
+      url: "/icons/ail-180-1390b66282.png",
+      sizes: "180x180",
+      type: "image/png",
+    },
+  },
 };
 export default function RootLayout({
   children,
