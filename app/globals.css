@@ -370,6 +370,21 @@ p {
 .name-strip a:hover {
   color: var(--link-hover-color);
 }
+@media (min-width: 701px) {
+  .name-strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: center;
+  }
+  .name-strip a:nth-child(2) {
+    justify-self: center;
+    text-align: center;
+  }
+  .name-strip a:last-child {
+    justify-self: end;
+    text-align: right;
+  }
+}
 .home-divinity {
   padding-top: 60px;
   padding-bottom: 80px;
