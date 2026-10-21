@@ -1,3 +1,4 @@
+import SelectedSocialContent from "@/components/site/selected-social-content";
 import SocialLinks from "@/components/site/social-links";
 import { workSocialSlugs } from "@/content/social-links";
 import ArrowIcon from "@/components/site/arrow-icon";
@@ -84,22 +85,14 @@ export default function Work() {
         className="upcoming-work wrap"
         aria-label="Upcoming portfolio categories"
       >
-        {[
-          ["03 / WEB DESIGN", "Websites", "Design & development"],
-          [
-            "04 / CONTENT",
-            "Selected social media content",
-            "Reels, posts & campaigns",
-          ],
-        ].map(([number, title, description]) => (
-          <article key={number}>
-            <p className="eyebrow">{number}</p>
-            <h2>{title}</h2>
-            <p>{description}</p>
-            <span className="coming-soon">COMING SOON</span>
-          </article>
-        ))}
+        <article>
+          <p className="eyebrow">03 / WEB DESIGN</p>
+          <h2>Websites</h2>
+          <p>Design &amp; development</p>
+          <span className="coming-soon">COMING SOON</span>
+        </article>
       </section>
+      <SelectedSocialContent />
       <section
         id="social-media"
         className="work-socials wrap"

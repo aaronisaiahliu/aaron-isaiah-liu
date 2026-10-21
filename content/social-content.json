@@ -1,0 +1,112 @@
+[
+  {
+    "id": "01",
+    "platform": "Instagram",
+    "href": "https://www.instagram.com/reel/DLmycF2t8SE/",
+    "label": "@jasminechoi_flutist",
+    "image": "/images/social/01.webp",
+    "width": 674,
+    "height": 1200
+  },
+  {
+    "id": "02",
+    "platform": "Instagram",
+    "href": "https://www.instagram.com/reel/DXVNMgMggiJ/",
+    "label": "@classic.divinity",
+    "image": "/images/social/02.webp",
+    "width": 640,
+    "height": 1136
+  },
+  {
+    "id": "03",
+    "platform": "Instagram",
+    "href": "https://www.instagram.com/reel/DHGZMMWoeIZ/",
+    "label": "@bruno_desanunes",
+    "image": "/images/social/03.webp",
+    "width": 675,
+    "height": 1200
+  },
+  {
+    "id": "04",
+    "platform": "Instagram",
+    "href": "https://www.instagram.com/reel/DWuEtg_glxN/",
+    "label": "@classic.divinity",
+    "image": "/images/social/04.webp",
+    "width": 675,
+    "height": 1200
+  },
+  {
+    "id": "05",
+    "platform": "Instagram",
+    "href": "https://www.instagram.com/reel/DPgZLEDkYfh/",
+    "label": "@classic.divinity",
+    "image": "/images/social/05.webp",
+    "width": 640,
+    "height": 1136
+  },
+  {
+    "id": "06",
+    "platform": "Instagram",
+    "href": "https://www.instagram.com/reel/DXwypOcK_Fu/",
+    "label": "@gleb.countertenor",
+    "image": "/images/social/06.webp",
+    "width": 675,
+    "height": 1200
+  },
+  {
+    "id": "07",
+    "platform": "Instagram",
+    "href": "https://www.instagram.com/reel/DZAy1lagtmO/",
+    "label": "@classic.divinity",
+    "image": "/images/social/07.webp",
+    "width": 675,
+    "height": 1200
+  },
+  {
+    "id": "08",
+    "platform": "Instagram",
+    "href": "https://www.instagram.com/reel/DbdkxSLMUwY/",
+    "label": "@simonshenghuahu",
+    "image": "/images/social/08.webp",
+    "width": 675,
+    "height": 1200
+  },
+  {
+    "id": "09",
+    "platform": "Instagram",
+    "href": "https://www.instagram.com/reel/Dbld4KzibRW/",
+    "label": "@maestroxianzhang",
+    "image": "/images/social/09.webp",
+    "width": 675,
+    "height": 1200
+  },
+  {
+    "id": "10",
+    "platform": "Instagram",
+    "href": "https://www.instagram.com/reel/C51pBvaxoWR/",
+    "label": "@classic.divinity",
+    "image": "/images/social/10.webp",
+    "width": 675,
+    "height": 1200
+  },
+  {
+    "id": "11",
+    "platform": "TikTok",
+    "href": "https://www.tiktok.com/t/ZPLAraLC5/",
+    "label": "@classicdivinity",
+    "resolvedUrl": "https://www.tiktok.com/@classicdivinity/video/7342308279701458222",
+    "image": "/images/social/11.webp",
+    "width": 675,
+    "height": 1200
+  },
+  {
+    "id": "12",
+    "platform": "TikTok",
+    "href": "https://www.tiktok.com/t/ZPLArjpRm/",
+    "label": "@classicdivinity",
+    "resolvedUrl": "https://www.tiktok.com/@classicdivinity/video/7632431136563662110",
+    "image": "/images/social/12.webp",
+    "width": 839,
+    "height": 1200
+  }
+]
